@@ -3,32 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Gracias por Celebrar con Nosotros!</title>
+    <title>¡Gracias y Éxito en tu Maestría, Montserrat!</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
-            background-color: #023E8A;
+            background-color: #fff8e1;
             overflow: hidden;
+            text-align: center;
         }
 
         h1 {
-            color: white;
+            color: #2c3e50;
             font-size: 3em;
             margin-bottom: 10px;
         }
 
         h2 {
-            color: #9c9999;
-            font-size: 1.5em;
+            color: #f39c12;
+            font-size: 1.7em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #34495e;
+            font-size: 1.2em;
             margin-bottom: 30px;
         }
 
+        /* Bunny Ears in Corner */
+        .bunny-ears {
+            position: absolute;
+            top: -25px;
+            left: 10px;
+            width: 100px;
+            height: 100px;
+            transform-origin: top center;
+            transition: transform 0.3s ease;
+        }
+
+        .bunny-ears img {
+            width: 100%;
+            height: auto;
+            rotate: 180deg;
+        }
+
+        /* Animation for continuous movement */
+        .bunny-ears.hovering {
+            animation: rotateBunnyEars 0.5s infinite alternate ease-in-out;
+        }
+
+        @keyframes rotateBunnyEars {
+            0% {
+                transform: rotate(10deg);
+            }
+            100% {
+                transform: rotate(-10deg);
+            }
+        }
+
+        /* Confetti Animation */
         .confetti {
             position: absolute;
             top: 0;
@@ -42,8 +81,8 @@
             position: absolute;
             width: 10px;
             height: 20px;
-            background-color: #f39c12;
-            opacity: 0.7;
+            background-color: #ffcc80;
+            opacity: 0.8;
             transform-origin: left top;
             animation: confetti-fall linear infinite;
         }
@@ -61,57 +100,31 @@
             }
         }
 
-        /* Different colors and delays for the confetti */
+        /* Confetti colors and delay variation */
         .confetti-piece:nth-child(odd) {
-            background-color: #e74c3c;
-            animation-duration: 2.5s;
+            background-color: #f39c12;
+            animation-duration: 2.8s;
             animation-delay: calc(-3s * var(--y));
         }
 
         .confetti-piece:nth-child(even) {
-            background-color: #8e44ad;
+            background-color: #e74c3c;
             animation-duration: 3.5s;
             animation-delay: calc(-4s * var(--y));
-        }
-
-        .grad-cap {
-            margin-top: 20px;
-            width: 150px;
-            height: 150px;
-            position: relative;
-        }
-
-        .grad-cap .cap {
-            width: 100%;
-            height: 30px;
-            background-color: #333;
-            transform: rotate(45deg);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(45deg);
-        }
-
-        .grad-cap .tassel {
-            width: 10px;
-            height: 60px;
-            background-color: #f39c12;
-            position: absolute;
-            top: 50%;
-            left: 75%;
-            transform: translate(-50%, -50%);
         }
 
     </style>
 </head>
 <body>
-    <h1>¡Gracias por Celebrar con Nosotros!</h1>
-    <h2>Felicitaciones a Efren por su Promoción</h2>
 
-    <!-- <div class="grad-cap">
-        <div class="cap"></div>
-        <div class="tassel"></div>
-    </div> -->
+    <h1>¡Gracias por todo, Montserrat!</h1>
+    <h2>Te Deseamos lo Mejor en tu Maestría</h2>
+    <p>¡Estamos muy orgullosos de ti por conseguir tu beca y te extrañaremos mucho! ❤️</p>
+
+    <!-- Bunny Ears in the corner -->
+    <div class="bunny-ears">
+        <img src="https://static.vecteezy.com/system/resources/previews/016/581/576/original/bunny-ears-rabbit-ears-png.png" alt="Bunny Ears">
+    </div>
 
     <div class="confetti">
         <div class="confetti-piece" style="--x: 0.1; --y: 0.1;"></div>
@@ -122,6 +135,7 @@
     </div>
 
     <script>
+        // Generate confetti pieces
         const confettiContainer = document.querySelector('.confetti');
 
         for (let i = 0; i < 100; i++) {
@@ -131,6 +145,16 @@
             confettiPiece.style.setProperty('--y', Math.random());
             confettiContainer.appendChild(confettiPiece);
         }
+
+        // Add hover effect to keep bunny ears moving
+        const bunnyEars = document.querySelector('.bunny-ears');
+        bunnyEars.addEventListener('mouseenter', () => {
+            bunnyEars.classList.add('hovering');
+        });
+
+        bunnyEars.addEventListener('mouseleave', () => {
+            bunnyEars.classList.remove('hovering');
+        });
     </script>
 </body>
 </html>
